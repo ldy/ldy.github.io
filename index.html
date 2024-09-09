@@ -1,61 +1,104 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+---
+layout: default
+home-title: H2O Theme For Jekyll
+description: 或许是最漂亮的Jekyll主题
+---
 
-    <title>LDY</title>
+{% include header.html %}
 
-    <!-- Styles -->
-    <style>
-        html, body {
-            margin: 0;
-            color: #636b6f;
-            background-color: #fff;
-            font-family: 'Raleway', sans-serif;
-            font-size: 84px;
-        }
-
-        .flex-center {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-		/* raleway-100 */
-		@font-face {
-		  font-family: 'Raleway';
-		  font-style: normal;
-		  font-weight: 100;
-		  src: url('//lib.baomitu.com/fonts/raleway/raleway-100.eot'); /* IE9 Compat Modes */
-		  src: local('Raleway'), local('Raleway-Normal'),
-		       url('//lib.baomitu.com/fonts/raleway/raleway-100.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-		       url('//lib.baomitu.com/fonts/raleway/raleway-100.woff2') format('woff2'), /* Super Modern Browsers */
-		       url('//lib.baomitu.com/fonts/raleway/raleway-100.woff') format('woff'), /* Modern Browsers */
-		       url('//lib.baomitu.com/fonts/raleway/raleway-100.ttf') format('truetype'), /* Safari, Android, iOS */
-		       url('//lib.baomitu.com/fonts/raleway/raleway-100.svg#Raleway') format('svg'); /* Legacy iOS */
-		}
-		  
-		/* raleway-600 */
-		@font-face {
-		  font-family: 'Raleway';
-		  font-style: normal;
-		  font-weight: 600;
-		  src: url('//lib.baomitu.com/fonts/raleway/raleway-600.eot'); /* IE9 Compat Modes */
-		  src: local('Raleway'), local('Raleway-Normal'),
-		       url('//lib.baomitu.com/fonts/raleway/raleway-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-		       url('//lib.baomitu.com/fonts/raleway/raleway-600.woff2') format('woff2'), /* Super Modern Browsers */
-		       url('//lib.baomitu.com/fonts/raleway/raleway-600.woff') format('woff'), /* Modern Browsers */
-		       url('//lib.baomitu.com/fonts/raleway/raleway-600.ttf') format('truetype'), /* Safari, Android, iOS */
-		       url('//lib.baomitu.com/fonts/raleway/raleway-600.svg#Raleway') format('svg'); /* Legacy iOS */
-		}
-    </style>
-</head>
-<body>
-<div class="flex-center">
-    LDY
+<div
+    class="g-banner home-banner {{ site.theme-color | prepend: 'banner-theme-' }}"
+    data-theme="{{ site.theme-color }}"
+    style="{% if page.header-img %}background: url({{ page.header-img | relative_url }}) no-repeat center center; background-size: cover;{% endif %}"
+>
+    <h2>{{ page.home-title }}</h2>
+    <h3>{{ page.description }}</h3>
 </div>
-</body>
-</html>
+
+<main class="g-container home-content">
+    <div class="article-list">
+        {% for post in paginator.posts %}
+            <article class="article-item">
+                {% if post.cover %}
+                <div class="post-cover">
+                    <a class="post-link" href="{{ post.url | relative_url }}" title="{{ post.title }}"></a>
+                    <img src="{{ post.cover | relative_url }}" href="{{ post.url | relative_url }}" alt="">
+                </div>
+                {% endif %}
+                <section class="post-preview">
+                    <a class="post-link" href="{{ post.url | relative_url }}" title="{{ post.title }}"></a>
+                    <h2 class="post-title">{{ post.title }}</h2>
+                    {% if post.subtitle %}
+                    <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+                    {% endif %}
+                    {% if post.subtitle.size==0 or post.subtitle==nil %}
+                    <p class="post-excerpt">{{ post.excerpt | strip_html | strip_newlines | truncate: 126}}</p>
+                    {% endif %}
+                </section>
+                <footer class="post-meta">
+                    <div class="post-tags">
+                        {% if post.tags.size > 0 %}
+                            {% for tag in post.tags  %}
+                            <a href={{ "tags.html#" | append: tag | relative_url }} class="post-tag">{{ tag }}</a>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <time class="post-date" datetime="{{ post.date | date:"%y-%m-%d" }}">{{ post.date | date_to_string }}</time>
+                </footer>
+            </article>
+        {% endfor %}
+
+        {% if paginator.total_pages > 1 %}
+            {% include pageNav.html %}
+        {% endif %}
+
+    </div>
+
+    <aside class="g-sidebar-wrapper">
+        <div class="g-sidebar">
+            <section class="author-card">
+                <div class="avatar">
+                    <img src="{{ site.avatar | relative_url }}" alt="">
+                </div>
+                <div class="author-name" rel="author">{{ site.author }}</div>
+                <div class="bio">
+                    <p>{{ site.bio }}</p>
+                </div>
+                {% if site.sns.size > 0 %}
+                <ul id="sns-links" class="sns-links">
+                    {% for s in site.sns %}
+                    <li>
+                        <a href="{{ s[1] }}" target="_blank">
+                            <i class="iconfont icon-{{ s[0] }}"></i>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </section>
+
+            {% if site.recommend-tags and site.tags.size>0 %}
+            <section class="tags-card">
+                {% for tag in site.tags %}
+                    {% if forloop.index > site.recommend-condition-size %}
+                        {% break %}
+                    {% endif %}
+                    <a href="{{ "tags.html#" | append: tag[0] | relative_url }}" class="tag">{{ tag[0]}}</a>
+                {% endfor %}
+            </section>
+            {% endif %}
+        </div>
+
+        {% if site.search %}
+        <div class="search-card">
+            <input id="search_input" type="text" placeholder="Search..." autocomplete="off">
+            <i class="iconfont icon-search"></i>
+            <div class="search_result"></div>
+        </div>
+        {% endif %}
+
+    </aside>
+
+</main>
+
+{% include footer.html %}
