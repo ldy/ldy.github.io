@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Cloudflare Workers搭建Docker镜像加速服务
 date: 2024-07-20
 author: 丶德灬锅

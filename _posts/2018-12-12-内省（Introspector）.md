@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 内省（Introspector）
 date: 2018-12-12
 author: 丶德灬锅
