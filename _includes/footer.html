@@ -8,4 +8,12 @@
   {{ current }}
   </section>
   <section>Powered by <a href="//jekyllrb.com">Jekyll</a> | <a href="https://github.com/kaeyleo/jekyll-theme-H2O">Theme H2O</a></section>
+  {% if site.busuanzi %}
+    <section>
+      <span id="busuanzi_container_site_pv">总浏览量<span id="busuanzi_value_site_pv"></span></span> |
+      <span id="busuanzi_container_site_uv">总访问量<span id="busuanzi_value_site_uv"></span></span>
+    </section>
+  {% endif %}
 </footer>
+<!-- 添加不蒜子访问量统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>

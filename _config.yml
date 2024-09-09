@@ -77,6 +77,9 @@ kramdown:
 # RSS
 RSS: true
 
+# 不蒜子站点访问量
+busuanzi: true
+
 # Permalink
 # See: https://github.com/kaeyleo/jekyll-theme-H2O/issues/35
 permalink: /:year/:month/:day/:title.html
