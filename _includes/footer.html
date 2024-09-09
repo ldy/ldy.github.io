@@ -16,4 +16,19 @@
   {% endif %}
 </footer>
 <!-- 添加不蒜子访问量统计 -->
+{% if site.busuanzi %}
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+{% endif %}
+
+<!-- 百度统计 -->
+{% if site.baidu_analytics %}
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?77bd9fb979f4e0b4a41fa67a487510dd";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+{% endif %}
