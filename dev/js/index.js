@@ -41,7 +41,7 @@ $(document).ready(function(){
                     'box-shadow': '0 1px 12px rgba(0, 0, 0, .08)'
                 });
                 logo.css({
-                    'background': 'url(/assets/icons/logo_' + themeStyle + '.svg) no-repeat center',
+                    'background': 'url(' + window.BASEURL + '/assets/icons/logo_' + themeStyle + '.svg) no-repeat center',
                     'background-size': '100% 100%'
                 });
                 navText.css('color', '#666');
@@ -53,7 +53,7 @@ $(document).ready(function(){
                     'box-shadow': 'none'
                 });
                 logo.css({
-                    'background': 'url(/assets/icons/logo.svg) no-repeat center',
+                    'background': 'url(' + window.BASEURL + '/assets/icons/logo.svg) no-repeat center',
                     'background-size': '100% 100%'
                 });
                 navText.css('color', '#fff');
@@ -174,7 +174,7 @@ $(document).ready(function(){
             $('.icon-search').css('color', '#CAD3DC');
         }
 
-        $.getJSON('../../search.json').done(function(data) {
+        $.getJSON(window.BASEURL + '/search.json').done(function(data) {
             var html = '';
             for (var i in data) {
                 var item = data[i];
@@ -218,7 +218,7 @@ $(document).ready(function(){
         var date = new Date();
         var hour = date.getHours();
 
-        if (hour <= 6 || hour >= 18) {
+        if ((hour >= 0 && hour <= 6) || hour === 23) {
             el.addClass(className);
         }
     }
