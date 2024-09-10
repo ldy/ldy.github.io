@@ -2,7 +2,11 @@
 <html>
 {% include post-head.html %}
 
+{% if site.prism.line_numbers %}
+<body class="line-numbers">
+{% else %}
 <body>
+{% endif %}
   <!--[if lt IE 10]>
 <div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
 <![endif]-->
@@ -142,7 +146,6 @@
   </script>
   {% endif %}
 
-  <script src="{{ "/assets/js/prism.js" | relative_url }}"></script>
   <script src="{{ "/assets/js/index.min.js" | relative_url }}"></script>
 </body>
 

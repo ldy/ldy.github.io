@@ -83,6 +83,13 @@ busuanzi: true
 # 百度统计
 baidu_analytics: true
 
+# Prism settings
+# Support all offical and extended themes
+# Please visit https://prismjs.com and https://github.com/PrismJS/prism-themes/tree/master/themes to check the supported theme names
+prism:
+  theme: one-light
+  line_numbers: true
+
 # Permalink
 # See: https://github.com/kaeyleo/jekyll-theme-H2O/issues/35
 permalink: /:year/:month/:day/:title.html
