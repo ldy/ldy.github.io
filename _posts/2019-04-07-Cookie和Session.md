@@ -1,14 +1,13 @@
 ---
 layout: post
 title: Cookie和Session
+subtitle: 'Http协议基于TCP/IP，是无状态的，如果需要保存每个客户端的请求信息，识别每个客户端的某些状态，需要使用Cookie和Session存储会话数据。'
 date: 2019-04-07
 author: 丶德灬锅
 tags: Cookie Session
 ---
 
 # Cookie和Session
-
-[TOC]
 
 > Http协议基于TCP/IP，是无状态的，如果需要保存每个客户端的请求信息，识别每个客户端的某些状态，需要使用Cookie和Session存储会话数据。
 >
