@@ -21,31 +21,31 @@ tags: Docker 镜像加速
 
 官网地址为[dash.cloudflare.com](http://dash.cloudflare.com/)，注册后登录界面如图。
 
-![image-20240816114113632](https://cdn.jsdelivr.net/gh/ldy/jekyll@master/_posts/img/2024-07-20-Cloudflare Workers搭建Docker镜像加速服务-image-20240816114113632.png)
+![image-20240816114113632](https://cdn.jsdelivr.net/gh/ldy/ldy.github.io@master/screenshot/2024-07-20-Cloudflare Workers搭建Docker镜像加速服务-image-20240816114113632.png)
 
 ## 托管域名
 
 首先添加网站
 
-![image-20240816114458689](https://cdn.jsdelivr.net/gh/ldy/jekyll@master/_posts/img/2024-07-20-Cloudflare Workers搭建Docker镜像加速服务-image-20240816114458689.png)
+![image-20240816114458689](https://cdn.jsdelivr.net/gh/ldy/ldy.github.io@master/screenshot/2024-07-20-Cloudflare Workers搭建Docker镜像加速服务-image-20240816114458689.png)
 
 选择免费计划
 
-![image-20240816114602369](https://cdn.jsdelivr.net/gh/ldy/jekyll@master/_posts/img/2024-07-20-Cloudflare Workers搭建Docker镜像加速服务-image-20240816114602369.png)
+![image-20240816114602369](https://cdn.jsdelivr.net/gh/ldy/ldy.github.io@master/screenshot/2024-07-20-Cloudflare Workers搭建Docker镜像加速服务-image-20240816114602369.png)
 
 提示需要修改DNS解析服务器为Cloudflare的服务器。
 
-![image-20240816114812190](https://cdn.jsdelivr.net/gh/ldy/jekyll@master/_posts/img/2024-07-20-Cloudflare Workers搭建Docker镜像加速服务-image-20240816114812190.png)
+![image-20240816114812190](https://cdn.jsdelivr.net/gh/ldy/ldy.github.io@master/screenshot/2024-07-20-Cloudflare Workers搭建Docker镜像加速服务-image-20240816114812190.png)
 
 我的域名是在阿里云注册，登录阿里云控制台，修改域名DNS解析服务器，最后再回到Cloudflare控制台等待同步完成。
 
-![image-20240816115104452](https://cdn.jsdelivr.net/gh/ldy/jekyll@master/_posts/img/2024-07-20-Cloudflare Workers搭建Docker镜像加速服务-image-20240816115104452.png)
+![image-20240816115104452](https://cdn.jsdelivr.net/gh/ldy/ldy.github.io@master/screenshot/2024-07-20-Cloudflare Workers搭建Docker镜像加速服务-image-20240816115104452.png)
 
 ## Workers配置
 
 新建Workers，自定义名称后点击部署。
 
-![image-20240816120022252](https://cdn.jsdelivr.net/gh/ldy/jekyll@master/_posts/img/2024-07-20-Cloudflare Workers搭建Docker镜像加速服务-image-20240816120022252.png)
+![image-20240816120022252](https://cdn.jsdelivr.net/gh/ldy/ldy.github.io@master/screenshot/2024-07-20-Cloudflare Workers搭建Docker镜像加速服务-image-20240816120022252.png)
 
 编辑代码如下，替换你的域名为`https://docker.lideyu.top`，该代码来源于[CF-Workers-docker.io](https://github.com/cmliu/CF-Workers-docker.io)项目。
 
@@ -370,13 +370,13 @@ async function proxy(urlObj, reqInit, rawLen) {
 }
 ```
 
-![image-20240816115813614](https://cdn.jsdelivr.net/gh/ldy/jekyll@master/_posts/img/2024-07-20-Cloudflare Workers搭建Docker镜像加速服务-image-20240816115813614.png)
+![image-20240816115813614](https://cdn.jsdelivr.net/gh/ldy/ldy.github.io@master/screenshot/2024-07-20-Cloudflare Workers搭建Docker镜像加速服务-image-20240816115813614.png)
 
 在Workers的设置，触发器里面，添加自定义域名即可访问`https://docker.lideyu.top`搜索镜像。
 
-![image-20240816150249398](https://cdn.jsdelivr.net/gh/ldy/jekyll@master/_posts/img/2024-07-20-Cloudflare Workers搭建Docker镜像加速服务-image-20240816150249398.png)
+![image-20240816150249398](https://cdn.jsdelivr.net/gh/ldy/ldy.github.io@master/screenshot/2024-07-20-Cloudflare Workers搭建Docker镜像加速服务-image-20240816150249398.png)
 
-![image-20240816150415681](https://cdn.jsdelivr.net/gh/ldy/jekyll@master/_posts/img/2024-07-20-Cloudflare Workers搭建Docker镜像加速服务-image-20240816150415681.png)
+![image-20240816150415681](https://cdn.jsdelivr.net/gh/ldy/ldy.github.io@master/screenshot/2024-07-20-Cloudflare Workers搭建Docker镜像加速服务-image-20240816150415681.png)
 
 修改Docker配置文件设置加速镜像站点即可快速拉取镜像。
 
