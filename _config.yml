@@ -82,6 +82,7 @@ busuanzi: true
 
 # 百度统计
 baidu_analytics: true
+baidu_analytics_id: 77bd9fb979f4e0b4a41fa67a487510dd
 
 # Prism settings
 # Support all offical and extended themes
