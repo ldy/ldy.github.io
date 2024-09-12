@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Cloudflare Workers搭建Docker镜像加速服务
-subtitle: '今年6、7月开始，因监管要求各大高校和云服务产商提供的Docker镜像加速服务相继下架，且官方Docker镜像不可访问，第三方提供的Docker镜像加速存在不稳定和不安全的因素，因此自行搭建Docker镜像加速服务。'
+subtitle: '自建Docker镜像加速服务'
 date: 2024-07-20
 author: 丶德灬锅
 tags: Docker 镜像加速

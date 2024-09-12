@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 内省（Introspector）
-subtitle: '内省（Introspector）是Java语言对JavaBean类属性、事件的一种缺省处理方法。'
+subtitle: 'Java语言对JavaBean类属性、事件的一种缺省处理方法'
 date: 2018-12-12
 author: 丶德灬锅
 tags: 内省
