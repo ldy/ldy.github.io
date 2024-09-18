@@ -112,6 +112,36 @@
     {% endif %}
   </section>
 
+  {% if page.content contains 'h1' or page.content contains 'h2' or page.content contains 'h3' or page.content
+  contains 'h4' or page.content contains 'h5' or page.content contains 'h6' and site.toc %}
+  <div class="table-of-contents">
+  <div class="toc-header"><h2>目录</h2></div>
+  <div class="toc-body">
+    {% include toc.html html=content %}
+  </div>
+  {% else %}
+  <div class="table-of-contents hidden">
+    {% endif %}
+  </div>
+
+  <!-- toc导航 -->
+  <section id="tools">
+    {% if page.content contains 'h1' or page.content contains 'h2' or page.content contains 'h3' or page.content contains 'h4' or page.content contains 'h5' or page.content contains 'h6' and site.toc %}
+    <div class="tool toc">
+      <svg class="icon b1 active" aria-hidden="true">
+        <use xlink:href="#icon-toc"></use>
+      </svg>
+      <svg class="icon b2" aria-hidden="true">
+        <use xlink:href="#icon-exit"></use>
+      </svg>
+      <span class="extra-info">目录</span>
+    </div>
+    {% endif %}
+  </section>
+
+  <!-- Iconfont -->
+  <script src="https://at.alicdn.com/t/c/font_3046306_ujr2yq34hw.js"></script>
+
   {% include footer.html %}
 
   <script src="{{ "/assets/js/social-share.min.js" | relative_url }}"></script>
@@ -150,6 +180,19 @@
   {% endif %}
 
   <script src="{{ "/assets/js/index.min.js" | relative_url }}"></script>
+  <script>
+    /** Toc导航目录，点击跳转到对应的标题 */
+    function scrollToAdjust(id){
+      var element = document.getElementById(id);
+      var headerOffset = 90;
+      var elementPosition = element.getBoundingClientRect().top;
+      var offsetPosition = elementPosition + window.scrollY - headerOffset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  </script>
 </body>
 
 </html>

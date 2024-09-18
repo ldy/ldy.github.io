@@ -870,3 +870,123 @@
         color: #61BDCF;
     }
 }
+
+.table-of-contents {
+    width: 280px;
+    border-radius: 10px;
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    right: 20.8px;
+    bottom: 157px;
+    max-width: 95%;
+    background-color: aliceblue;
+    z-index: 1010;
+    margin-bottom: 5px;
+    padding: 25px;
+
+    &.active {
+        visibility: visible;
+        opacity: 1;
+        transition: .5s;
+    }
+
+    .toc-body {
+        max-height: 450px;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    h2 {
+        padding-bottom: 20px;
+    }
+
+    ul {
+        font-size: 14px;
+        line-height: 20px;
+        border-left: 4px solid #efefef;
+
+        li {
+            ul {
+                border-left: none;
+                li {
+                    padding-left: 15px;
+
+                    ul {
+                        margin-left: -15px;
+
+                        li {
+                            padding-left: 30px;
+                        }
+                    }
+                }
+            }
+
+            a {
+                display: inline-block;
+                padding: 0px 8px;
+                width: 95%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+}
+
+.table-of-contents h2,
+.table-of-contents li.active > a {
+    color: $color-theme-default;
+}
+
+.table-of-contents a:hover {
+    color: $color-theme-default;
+}
+
+.table-of-contents li.active:before {
+    background-color: $color-theme-default;
+}
+
+#tools {
+    visibility: visible;
+    position: fixed;
+    right: 20.8px;
+    bottom: 100px;
+    z-index: 1000;
+    .tool {
+        width: 24px;
+        height: 24px;
+        background-color: #ebedf0;
+        padding: 12px;
+        border-radius: 50%;
+        box-shadow: 1px 2px 0 rgba(0, 0, 0, .1);
+        margin-bottom: 10px;
+        &:hover {
+            background-color: #dadde1;
+            cursor: pointer;
+        }
+        .icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            overflow: hidden;
+            display: none;
+            &.active {
+                display: block;
+            }
+        }
+    }
+}
+
+// 显示目录两个字
+.extra-info {
+    display: none;
+    position: absolute;
+    margin-top: -60px;
+    margin-left: -5px;
+}
+
+.toc:hover .extra-info {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+}

@@ -1065,6 +1065,115 @@ a {
   color: #61BDCF;
 }
 
+.table-of-contents {
+  width: 280px;
+  border-radius: 10px;
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  right: 20.8px;
+  bottom: 157px;
+  max-width: 95%;
+  background-color: aliceblue;
+  z-index: 1010;
+  margin-bottom: 5px;
+  padding: 25px;
+}
+.table-of-contents.active {
+  visibility: visible;
+  opacity: 1;
+  transition: 0.5s;
+}
+.table-of-contents .toc-body {
+  max-height: 450px;
+  overflow: auto;
+  overflow-x: hidden;
+}
+.table-of-contents h2 {
+  padding-bottom: 20px;
+}
+.table-of-contents ul {
+  font-size: 14px;
+  line-height: 20px;
+  border-left: 4px solid #efefef;
+}
+.table-of-contents ul li ul {
+  border-left: none;
+}
+.table-of-contents ul li ul li {
+  padding-left: 15px;
+}
+.table-of-contents ul li ul li ul {
+  margin-left: -15px;
+}
+.table-of-contents ul li ul li ul li {
+  padding-left: 30px;
+}
+.table-of-contents ul li a {
+  display: inline-block;
+  padding: 0px 8px;
+  width: 95%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table-of-contents h2,
+.table-of-contents li.active > a {
+  color: #1494FB;
+}
+
+.table-of-contents a:hover {
+  color: #1494FB;
+}
+
+.table-of-contents li.active:before {
+  background-color: #1494FB;
+}
+
+#tools {
+  visibility: visible;
+  position: fixed;
+  right: 20.8px;
+  bottom: 100px;
+  z-index: 1000;
+}
+#tools .tool {
+  width: 24px;
+  height: 24px;
+  background-color: #ebedf0;
+  padding: 12px;
+  border-radius: 50%;
+  box-shadow: 1px 2px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+#tools .tool:hover {
+  background-color: #dadde1;
+  cursor: pointer;
+}
+#tools .tool .icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  overflow: hidden;
+  display: none;
+}
+#tools .tool .icon.active {
+  display: block;
+}
+
+.extra-info {
+  display: none;
+  position: absolute;
+  margin-top: -60px;
+  margin-left: -5px;
+}
+
+.toc:hover .extra-info {
+  display: block;
+  animation: fadeIn 0.3s ease-out;
+}
+
 @media screen and (min-width: 1920px) {
   .home-banner {
     height: 600px;

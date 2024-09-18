@@ -245,4 +245,55 @@ $(document).ready(function(){
         }
     });
 
+    /** Toc导航目录，切换图标 */
+    function clickTOC() {
+        $('.table-of-contents').toggleClass("active");
+        $('#tools .tool.toc .b1').toggleClass("active");
+        $('#tools .tool.toc .b2').toggleClass("active");
+    }
+
+    $('#tools .tool.toc').bind('click', function () {
+        clickTOC()
+    });
+
+    $(".table-of-contents").on('click', function () {
+        clickTOC()
+    });
+
+    /**
+     * TOC highlight with the corresponding content
+     */
+    function locateCatelogList() {
+        /*获取文章目录集合,可通过：header过滤器*/
+        var alis = $('article :header');
+        /*获取侧边栏目录列表集合*/
+        var sidebar_alis = $('.table-of-contents a').parent();
+        /*获取滚动条到顶部的距离*/
+        var scroll_height = $(window).scrollTop();
+        for (var i = 0; i < alis.length; i++) {
+            /*获取锚点集合中的元素分别到顶点的距离*/
+            var a_height = $(alis[i]).offset().top - 100;
+            if (a_height < scroll_height) {
+                /*高亮显示*/
+                $(sidebar_alis).removeClass('active');
+                $(sidebar_alis[i]).addClass('active');
+                a_height = $(".toc-body li.active").offset().top - $(".toc-header h2").offset().top
+                var t_height = $(".toc-body li.active").offset().top-$(".toc-body li:first-child").offset().top
+                if (a_height < 22) {
+                    $(".toc-body").scrollTop(t_height-350);
+                }
+                if (a_height > 350) {
+                    $(".toc-body").scrollTop(t_height-72);
+                }
+            }
+        }
+    }
+
+    // 滚动条滚动，修改样式
+    if($(".toc-body").length >0){
+        $($('.table-of-contents a').parent()[0]).addClass('active');
+        locateCatelogList();
+        $(window).bind('scroll', locateCatelogList);
+    }
+
 });
