@@ -218,7 +218,7 @@ $(document).ready(function(){
         var date = new Date();
         var hour = date.getHours();
 
-        if (hour <= 6 || hour >= 18) {
+        if ((hour >= 0 && hour <= 6) || hour === 23) {
             el.addClass(className);
         }
     }
@@ -296,4 +296,23 @@ $(document).ready(function(){
         $(window).bind('scroll', locateCatelogList);
     }
 
+    /**
+     * Back To Top Button
+     */
+    $('.bttb').bind('click', function () {
+        $('html,body').animate({ scrollTop: 0 }, function () {
+            $('#bttb').removeClass("active");
+        });
+    });
+
+    /** 滚动显示到顶部按钮 */
+    $(document).scroll(function () {
+        var scrollTop = $(this).scrollTop();
+        var navClassName = 'nav-' + themeStyle;
+        if (scrollTop > 400) {
+            $('#bttb').addClass("active");
+        }else {
+            $('#bttb').removeClass("active");
+        }
+    });
 });
