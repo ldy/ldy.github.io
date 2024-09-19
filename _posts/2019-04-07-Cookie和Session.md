@@ -19,9 +19,9 @@ ServletContext：整个应用共享的资源，每个浏览器客户端修改会
 
 ServletRequest：如果使用ServletRequest，则限定了必须使用转发技术来跳转页面。
 
-## Cookie[^1]
+## Cookie
 
-会话数据保存在浏览器客户端。
+会话数据保存在浏览器客户端[^1]。
 
 服务器将会话数据保存在Cookie，通过响应头发送到浏览器，浏览器端随后保存Cookie，再次请求时，如果有、Cookie信息，浏览器自动将Cookie通过请求头发送到服务器。
 
@@ -31,9 +31,9 @@ Cookie默认关闭浏览器失效。
 
 浏览器所有Cookie数量有限制，每个站点数量有限制，每个Cookie大小有限制，且只能为字符串数据，Tomcat8.5及以上支持中文Cookie，Cookie明文保存在浏览器不安全；Session可以保存非字符串数据，高并发时服务器压力大。[^3]
 
-## Session[^1]
+## Session
 
-会话数据保存在服务器端，内存中。
+会话数据保存在服务器端，内存中[^1]。
 
 服务器能识别每个不同的浏览器，每个浏览器有一个对应的Session对象保存会话数据。第一次访问时创建Session对象，并分配一个唯一的ID叫JSESSIONID，通常JSESSIONID作为Cookie值发送给浏览器，再次访问时浏览器将JSESSIONID发送到服务器，服务器通过对应的JSESSIONID查找或创建对应的Session对象。
 

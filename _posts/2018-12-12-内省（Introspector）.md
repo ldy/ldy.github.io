@@ -19,9 +19,9 @@ tags: 内省
 
 内省机制是通过反射实现的。
 
-## JDK API[^1]
+## JDK API
 
-位于java.bean包中
+位于java.bean包中[^1]
 
 ### PropertyDescriptor
 
@@ -41,9 +41,9 @@ PropertyDescriptor[] propertyDescriptors = beanInfo.getPropertyDescriptors();
 // ...遍历
 ```
 
-## BeanUtils[^1]
+## BeanUtils
 
-内省操作非常繁琐，Apache开发了一套简单、易用的API来操作Bean的属性，BeanUtils工具包。
+内省操作非常繁琐，Apache开发了一套简单、易用的API来操作Bean的属性，BeanUtils工具包[^1]。
 
 ```java
 UserInfo userInfo = new UserInfo();
@@ -56,4 +56,4 @@ BeanUtils.setProperty(userInfo, "age", age);
 
 在Servelet中通过request.getParameter()给对象赋值时，需要使用Setter方法一一赋值比较繁琐，而使用内省可以抽象为更加通用方法。
 
-[^1]: [阿里云Code代码](https://code.aliyun.com/lideyu/j2se/tree/master/basic/src/main/java/com/ldy/advanced/introspector)
+[^1]: [信息](https://code.aliyun.com/lideyu/j2se/tree/master/basic/src/main/java/com/ldy/advanced/introspector)
