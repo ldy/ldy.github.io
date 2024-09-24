@@ -71,19 +71,19 @@ Now try logging into the machine, with:   "ssh 'Shenma@10.122.10.218'"
 and check to make sure that only the key(s) you wanted were added.
 ```
 
-![image-20240924103739436](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\2019-09-16-Linux密钥登录另一台Linux-image-20240924103739436.png)
+![image-20240924103739436](https://cdn.jsdelivr.net/gh/ldy/ldy.github.io@master/screenshot/2019-09-16-Linux%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95%E5%8F%A6%E4%B8%80%E5%8F%B0Linux-image-20240924103739436.png)
 
 ### 验证SSH密钥登录
 
-![image-20240924103906340](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\2019-09-16-Linux密钥登录另一台Linux-image-20240924103906340.png)
+![image-20240924103906340](https://cdn.jsdelivr.net/gh/ldy/ldy.github.io@master/screenshot/2019-09-16-Linux%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95%E5%8F%A6%E4%B8%80%E5%8F%B0Linux-image-20240924103906340.png)
 
 ### 配置SSH快捷登录
 
 `vim /etc/hosts`修改hosts文件，设置ip的别名`10.122.10.218 Kjb-Nginx`，通过`ssh Shenma@Kjb-Nignx`进行登录。
 
-![image-20240924105702558](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\2019-09-16-Linux密钥登录另一台Linux-image-20240924105702558.png)
+![image-20240924105702558](https://cdn.jsdelivr.net/gh/ldy/ldy.github.io@master/screenshot/2019-09-16-Linux%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95%E5%8F%A6%E4%B8%80%E5%8F%B0Linux-image-20240924105702558.png)
 
-![image-20240924105720806](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\2019-09-16-Linux密钥登录另一台Linux-image-20240924105720806.png)
+![image-20240924105720806](https://cdn.jsdelivr.net/gh/ldy/ldy.github.io@master/screenshot/2019-09-16-Linux%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95%E5%8F%A6%E4%B8%80%E5%8F%B0Linux-image-20240924105720806.png)
 
 ## SSH黑白名单
 
