@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Centos将centos-home磁盘空间转移到centos-root.md
+title: Centos将centos-home磁盘空间转移到centos-root
 subtitle: '磁盘空间分配不合理，需要将centos-home磁盘空间转移到centos-root'
 date: 2025-05-23
 author: 丶德灬锅
