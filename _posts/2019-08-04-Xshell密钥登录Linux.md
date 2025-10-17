@@ -81,3 +81,17 @@ vim /etc/sudoers
 Shenma  ALL=(ALL)       ALL
 Kjb    ALL=(ALL)       NOPASSWD: ALL
 ```
+
+## Linux设置免密登录后仍然需要输入密码
+
+将Xhell生成的的公钥和私钥拷贝到机器上后，私钥放在本地主机，公钥放在远程主机并配置到authorized_keys文件，设置好权限之后，使用`ssh user@ip`命令登录一直还是提示需要输入密码，后面发现使用`ssh -i ~/.ssh/id_rsa_2048_xxx user@ip`指定私钥文件命令后执行成功，后面才知道密钥认证时默认使用 `~/.ssh/id_rsa` 文件作为私钥。可以通过在`~/.ssh`目录下新增`congfig`文件并设置600权限来简化输入密钥文件、用户、Ip。
+
+```shell
+Host app
+  HostName 11.1.65.100
+  User kjb
+  IdentityFile ~/.ssh/id_rsa_2048_kjb
+```
+
+
+
